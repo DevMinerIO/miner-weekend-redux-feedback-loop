@@ -12,6 +12,18 @@ import Review from '../Review/Review';
 
 function App() {
 
+  // get request. Not sure if I will need it yet. 
+  const getFeedback = () => {
+    // get the url from the server.js
+    axios.get('/review')
+      .then(response => {
+        dispatch({ type: 'SET_FEEDBACK', payload: response.data })
+      })
+      .catch(error => {
+        console.log('Error in APP GETing Feedback:', error);
+      })
+  }
+
 
   return (
     <div className='App'>
