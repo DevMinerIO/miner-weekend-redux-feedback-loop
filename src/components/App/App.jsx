@@ -2,7 +2,7 @@ import React from 'react';
 import axios from 'axios';
 import './App.css';
 import { HashRouter as Router, Route, Link } from 'react-router-dom';
-import { useHistory } from 'react-router-dom'
+import { useHistory } from 'react-router-dom';
 
 import FeelingForm from '../FeelingForm/FeelingForm';
 import UnderstandingForm from '../UnderstandingForm/UnderstandingForm';
@@ -11,9 +11,6 @@ import CommentsForm from '../CommentsForm/CommentsForm';
 import Review from '../Review/Review';
 
 function App() {
-
-  // History in the app but out of the return 
-  const history = useHistory();
 
 
   return (
