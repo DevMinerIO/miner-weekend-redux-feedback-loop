@@ -11,9 +11,33 @@ import logger from 'redux-logger';
 
 
 // --- REDUCERS ---
-const example = (state = [], action) => {
+const feelingsReducer = (state = [], action) => {
     switch (action.type) {
-        case 'GET_PIZZA_LIST':
+        case 'SET_FEELING':
+            return action.payload;
+        default:
+            return state;
+    }
+}
+const understandingReducer = (state = [], action) => {
+    switch (action.type) {
+        case 'SET_UNDERSTANDING':
+            return action.payload;
+        default:
+            return state;
+    }
+}
+const supportReducer = (state = [], action) => {
+    switch (action.type) {
+        case 'SET_SUPPORT':
+            return action.payload;
+        default:
+            return state;
+    }
+}
+const commentsReducer = (state = [], action) => {
+    switch (action.type) {
+        case 'SET_COMMENT':
             return action.payload;
         default:
             return state;
@@ -24,7 +48,10 @@ const storeInstance = createStore(
     combineReducers(
         {
             // reducers here
-            example
+            feelingsReducer,
+            understandingReducer,
+            supportReducer,
+            commentsReducer
         }
     ),
     applyMiddleware(logger)
