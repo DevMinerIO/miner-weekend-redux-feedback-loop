@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { useSelector } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 
 function FeelingForm() {
@@ -6,6 +7,8 @@ function FeelingForm() {
     const history = useHistory();
     const dispatch = useDispatch();
 
+    // variable to store the feelings values probably not needed
+    // const feeling = useSelector(store => store.feelingsReducer);
 
     const handleNextClick = () => {
         // if (!inputFeeling) {
