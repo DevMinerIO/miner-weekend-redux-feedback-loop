@@ -9,8 +9,13 @@ import UnderstandingForm from '../UnderstandingForm/UnderstandingForm';
 import SupportForm from '../SupportForm/SupportForm';
 import CommentsForm from '../CommentsForm/CommentsForm';
 import Review from '../Review/Review';
+import { useSelector, useDispatch } from 'react-redux';
 
 function App() {
+
+  // useSelector to get the store of reducer feedbackReducer from the index.js
+  const feedback = useSelector(store => store.feedbackReducer);
+  const dispatch = useDispatch();
 
   // get request. Not sure if I will need it yet. 
   const getFeedback = () => {
@@ -48,7 +53,8 @@ function App() {
             <CommentsForm />
           </Route>
           <Route path="/review">
-            <Review />
+            {/* sending function getFeedback as a prop in case i need it to render the current feedback to the dom. */}
+            <Review getFeedback={getFeedback} />
           </Route>
         </form>
       </Router>
