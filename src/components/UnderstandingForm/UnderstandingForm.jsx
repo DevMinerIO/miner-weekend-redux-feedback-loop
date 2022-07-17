@@ -12,7 +12,7 @@ function UnderstandingForm() {
 
         dispatch({
             type: 'SET_UNDERSTANDING',
-            payload: { inputUnderstanding }
+            payload: inputUnderstanding 
         })
         history.push('/support');
     }

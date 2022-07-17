@@ -10,12 +10,19 @@ function Review() {
     const commentFeedback = useSelector(store => store.commentsReducer);
 
     // post request
-    axios.post('/review', {
-        feeling: feelingFeedback,
-        understanding: understandingFeedback,
-        support: supportFeedback,
-        comments: commentFeedback
-    })
+    const handleSubmit = () => {
+        try {
+            axios.post('/feedback', {
+                feeling: feelingFeedback,
+                understanding: understandingFeedback,
+                support: supportFeedback,
+                comments: commentFeedback
+            })
+        }
+        catch (error) {
+            console.log('Error POSTing new Feedback', error);
+        }
+    }
 
     return (
         <>
@@ -23,6 +30,9 @@ function Review() {
             <p>Understanding: {understandingFeedback}</p>
             <p>Support: {supportFeedback}</p>
             <p>Comments: {commentFeedback}</p>
+            <form onSubmit={handleSubmit}>
+                <button type="submit">Submit Feedback</button>
+            </form>
         </>
     )
 }

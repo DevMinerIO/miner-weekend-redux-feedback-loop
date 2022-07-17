@@ -18,7 +18,7 @@ function FeelingForm() {
         // }
             dispatch({
                 type: 'SET_FEELING',
-                payload: { inputFeeling }
+                payload: inputFeeling
             })
             history.push('/understanding');
     }

@@ -12,7 +12,7 @@ function SupportForm() {
     const handleNextClick = () => {
         dispatch({
             type: 'SET_SUPPORT',
-            payload: { inputSupport }
+            payload: inputSupport
         })
         history.push('/comments');
     }
