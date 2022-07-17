@@ -9,11 +9,15 @@ function CommentsForm() {
     const dispatch = useDispatch();
 
     const handleNextClick = () => {
-        dispatch({
-            type: 'SET_COMMENT',
-            payload: inputComments
-        })
-        history.push('/review');
+        if (!inputComments) {
+            alert('You must input a response before moving on');
+        } else {
+            dispatch({
+                type: 'SET_COMMENT',
+                payload: inputComments
+            })
+            history.push('/review');
+        }
     }
 
     return (

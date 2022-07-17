@@ -9,12 +9,17 @@ function UnderstandingForm() {
     const dispatch = useDispatch();
 
     const handleNextClick = () => {
-
-        dispatch({
-            type: 'SET_UNDERSTANDING',
-            payload: inputUnderstanding 
-        })
-        history.push('/support');
+        if (!inputUnderstanding) {
+            alert('You must input a response before moving on');
+        } else if (inputUnderstanding > 5 || inputUnderstanding < 1) {
+            alert('You must pick a number between 1 and 5 before moving on');
+        } else {
+            dispatch({
+                type: 'SET_UNDERSTANDING',
+                payload: inputUnderstanding
+            })
+            history.push('/support');
+        }
     }
 
     return (

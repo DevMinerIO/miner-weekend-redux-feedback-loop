@@ -10,11 +10,17 @@ function SupportForm() {
     const dispatch = useDispatch();
 
     const handleNextClick = () => {
-        dispatch({
-            type: 'SET_SUPPORT',
-            payload: inputSupport
-        })
-        history.push('/comments');
+        if (!inputSupport) {
+            alert('You must input a response before moving on');
+        } else if (inputSupport > 5 || inputSupport < 1) {
+            alert('You must pick a number between 1 and 5 before moving on');
+        } else {
+            dispatch({
+                type: 'SET_SUPPORT',
+                payload: inputSupport
+            })
+            history.push('/comments');
+        }
     }
 
     return (
