@@ -39,7 +39,6 @@ function App() {
             <h4>Don't forget it!</h4>
           </header>
         </Route>
-        <form>
           <Route path="/" exact>
             <FeelingForm />
           </Route>
@@ -56,7 +55,6 @@ function App() {
             {/* sending function getFeedback as a prop in case i need it to render the current feedback to the dom. */}
             <Review getFeedback={getFeedback} />
           </Route>
-        </form>
       </Router>
     </div>
   );

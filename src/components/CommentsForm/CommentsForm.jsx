@@ -11,7 +11,7 @@ function CommentsForm() {
     const handleNextClick = () => {
         dispatch({
             type: 'SET_COMMENT',
-            payload: { inputComments }
+            payload: inputComments
         })
         history.push('/review');
     }

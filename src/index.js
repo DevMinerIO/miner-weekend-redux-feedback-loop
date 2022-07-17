@@ -3,9 +3,9 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './components/App/App';
 import registerServiceWorker from './registerServiceWorker';
-import { combineReducers } from 'redux';
+// import { combineReducers } from 'redux';
 import { Provider } from 'react-redux';
-import { applyMiddleware, createStore } from 'redux';
+import { applyMiddleware, combineReducers, createStore } from 'redux';
 import logger from 'redux-logger';
 
 
