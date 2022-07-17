@@ -10,6 +10,7 @@ import SupportForm from '../SupportForm/SupportForm';
 import CommentsForm from '../CommentsForm/CommentsForm';
 import Review from '../Review/Review';
 import { useSelector, useDispatch } from 'react-redux';
+import Success from '../Success/Success';
 
 function App() {
 
@@ -54,7 +55,10 @@ function App() {
           <Route path="/review">
             {/* sending function getFeedback as a prop in case i need it to render the current feedback to the dom. */}
             <Review getFeedback={getFeedback} />
-          </Route>
+        </Route>
+        <Route path="/success">
+          <Success />
+        </Route>
       </Router>
     </div>
   );

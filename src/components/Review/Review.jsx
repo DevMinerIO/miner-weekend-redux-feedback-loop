@@ -1,4 +1,5 @@
 import axios from "axios";
+import { useHistory } from 'react-router-dom';
 import { useSelector } from "react-redux";
 
 function Review() {
@@ -9,6 +10,10 @@ function Review() {
     const supportFeedback = useSelector(store => store.supportReducer);
     const commentFeedback = useSelector(store => store.commentsReducer);
 
+    //history to go to the success page
+    const history = useHistory();
+
+
     // post request
     const handleSubmit = () => {
         try {
@@ -18,8 +23,10 @@ function Review() {
                 support: supportFeedback,
                 comments: commentFeedback
             })
+            history.push("/success");
         }
         catch (error) {
+            alert('Your feedback could not be submitted1!');
             console.log('Error POSTing new Feedback', error);
         }
     }
