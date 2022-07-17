@@ -1,6 +1,8 @@
+import axios from 'axios';
 import { useState } from 'react';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 import { useHistory } from 'react-router-dom';
+
 
 function FeelingForm() {
     const [inputFeeling, setInputFeeling] = useState('');
