@@ -5,23 +5,24 @@ import { useHistory } from 'react-router-dom';
 
 
 function FeelingForm() {
+    // input state and boiler plate variables
     const [inputFeeling, setInputFeeling] = useState('');
     const history = useHistory();
     const dispatch = useDispatch();
 
-    // variable to store the feelings values probably not needed
-    // const feeling = useSelector(store => store.feelingsReducer);
 
     const handleNextClick = () => {
+        // !input returns false if its null, undefined or a blank string, top codeblock will run
         if (!inputFeeling) {
             alert('You must input a response before moving on');
         } else if (inputFeeling > 5 || inputFeeling < 1) {
             alert('You must pick a number between 1 and 5 before moving on');
-        } else {
+        } else { // runs if valid input of not null && between 1 & 5 is met
             dispatch({
                 type: 'SET_FEELING',
                 payload: inputFeeling
             })
+            // what url to go to on success
             history.push('/understanding');
         }
     }

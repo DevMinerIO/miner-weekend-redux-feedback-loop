@@ -10,7 +10,7 @@ import logger from 'redux-logger';
 
 
 
-// --- REDUCERS ---
+// --- REDUCERS to store each input value ---
 const feelingsReducer = (state = [], action) => {
     switch (action.type) {
         case 'SET_FEELING':
@@ -43,7 +43,7 @@ const commentsReducer = (state = [], action) => {
             return state;
     }
 }
-
+// Store so i can use and store the variables across my app.
 const storeInstance = createStore(
     combineReducers(
         {
@@ -58,7 +58,7 @@ const storeInstance = createStore(
 
 );
 
-
+// provider included
 ReactDOM.render(<Provider store={storeInstance}>
     <App />
 </Provider>, document.getElementById('root'));

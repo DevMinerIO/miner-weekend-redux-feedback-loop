@@ -1,4 +1,5 @@
 const express = require('express');
+const { DatabaseError } = require('pg');
 const router = express.Router();
 
 const pool = require('../modules/pool');
@@ -16,9 +17,10 @@ router.get('/', (req, res) => {
         });
 });
 
-// post route
+// post route. / infers you are talking about your server.js app.use()
 router.post('/', (req, res) => {
     let newFeedback = req.body;
+    // added variables in case I wanted to make my pool.query look nicer... didnt use
     let feeling = newFeedback.feeling;
     let understanding = newFeedback.understanding;
     let support = newFeedback.support;
@@ -27,6 +29,7 @@ router.post('/', (req, res) => {
 
     let queryText = `INSERT INTO "feedback" ("feeling", "understanding", "support", "comments")
         VALUES ($1, $2, $3, $4);`;
+    // casting to a number before sending to the Database to ensure data types are accepted
     pool.query(queryText, [Number(newFeedback.feeling), Number(newFeedback.understanding),
     Number(newFeedback.support), newFeedback.comments])
         .then(result => {

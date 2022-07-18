@@ -2,6 +2,7 @@ const express = require('express');
 const app = express();
 const bodyParser = require('body-parser');
 const PORT = process.env.PORT || 5000;
+// remember "feedback" links to the feedback.router... dont import the server.js in server.js!!!
 const feedback = require('./routes/feedback.router');
 
 /** ---------- MIDDLEWARE ---------- **/

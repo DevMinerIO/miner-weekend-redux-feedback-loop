@@ -2,7 +2,7 @@ import { useHistory } from 'react-router-dom';
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 
-
+// Same comments as all other component pages. 
 function CommentsForm() {
     const [inputComments, setInputComments] = useState('');
     const history = useHistory();

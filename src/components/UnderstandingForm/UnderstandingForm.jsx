@@ -4,20 +4,23 @@ import { useDispatch } from 'react-redux';
 
 
 function UnderstandingForm() {
+        // input state and boiler plate variables
     const [inputUnderstanding, setInputUnderstanding] = useState('');
     const history = useHistory();
     const dispatch = useDispatch();
 
     const handleNextClick = () => {
+                // !input returns false if its null, undefined or a blank string, top codeblock will run
         if (!inputUnderstanding) {
             alert('You must input a response before moving on');
         } else if (inputUnderstanding > 5 || inputUnderstanding < 1) {
             alert('You must pick a number between 1 and 5 before moving on');
-        } else {
+        } else { // runs if valid input of not null && between 1 & 5 is met
             dispatch({
                 type: 'SET_UNDERSTANDING',
                 payload: inputUnderstanding
             })
+            // what url to go to on success
             history.push('/support');
         }
     }

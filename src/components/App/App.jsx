@@ -2,8 +2,7 @@ import React from 'react';
 import axios from 'axios';
 import './App.css';
 import { HashRouter as Router, Route, Link } from 'react-router-dom';
-import { useHistory } from 'react-router-dom';
-
+// component imports
 import FeelingForm from '../FeelingForm/FeelingForm';
 import UnderstandingForm from '../UnderstandingForm/UnderstandingForm';
 import SupportForm from '../SupportForm/SupportForm';
@@ -40,22 +39,28 @@ function App() {
             <h4>Don't forget it!</h4>
           </header>
         </Route>
-          <Route path="/" exact>
-            <FeelingForm />
-          </Route>
-          <Route path="/understanding" exact>
-            <UnderstandingForm />
-          </Route>
-          <Route path="/support">
-            <SupportForm />
-          </Route>
-          <Route path="/comments">
-            <CommentsForm />
-          </Route>
-          <Route path="/review">
-            {/* sending function getFeedback as a prop in case i need it to render the current feedback to the dom. */}
-            <Review getFeedback={getFeedback} />
+        {/* Home. Includes the first "feelings input" */}
+        <Route path="/" exact>
+          <FeelingForm />
         </Route>
+        {/* understanding form */}
+        <Route path="/understanding" exact>
+          <UnderstandingForm />
+        </Route>
+        {/* Support form */}
+        <Route path="/support">
+          <SupportForm />
+        </Route>
+        {/* Comments form */}
+        <Route path="/comments">
+          <CommentsForm />
+        </Route>
+        {/* Review form */}
+        <Route path="/review">
+          {/* sending function getFeedback as a prop in case I wanted to render the current feedback to the dom. */}
+          <Review getFeedback={getFeedback} />
+        </Route>
+        {/* success page after successful submit */}
         <Route path="/success">
           <Success />
         </Route>

@@ -16,6 +16,7 @@ function Review() {
 
     // post request
     const handleSubmit = () => {
+        // Surrounded in a try. If any 1 thing fails, it should break and go directly to the catch
         try {
             axios.post('/feedback', {
                 feeling: feelingFeedback,
@@ -26,11 +27,11 @@ function Review() {
             history.push("/success");
         }
         catch (error) {
-            alert('Your feedback could not be submitted1!');
+            alert('Your feedback could not be submitted!!!');
             console.log('Error POSTing new Feedback', error);
         }
     }
-
+    // takes in the store of each input in order to print to the DOM
     return (
         <>
             <p>Feelings: {feelingFeedback}</p>
